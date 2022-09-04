@@ -1,6 +1,10 @@
 const bcrypt = require('bcrypt');
 const Users = require('../model/User');
 
+const workout = require('./workoutController');
+
+workout.loggedIn = false;
+
 const createUser = async (req, res) => {
     const {username, password} = req.body;
 
@@ -50,6 +54,7 @@ const login = async (req, res) => {
     }else{
         res.sendStatus(401);
     }
+    workout.userId = findUser._id;
 }
 
 module.exports = {
