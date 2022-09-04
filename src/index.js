@@ -5,7 +5,7 @@ const port = 5001;
 const connectDB = require('./db/dbConn');
 const mongoose= require('mongoose');
 
-const userRouter = require('./routers/userRouters');
+const userRouter = require('./controllers/userController');
 
 //connect to MongoDB
 connectDB();
