@@ -5,13 +5,19 @@ const port = 5001;
 const connectDB = require('./db/dbConn');
 const mongoose= require('mongoose');
 
-const userRouter = require('./controllers/userController');
+const userRouter = require('./routes/api/users');
 
 //connect to MongoDB
 connectDB();
 
-//
-app.use(userRouter)
+// built-in middleware to handle urlencoded form data
+app.use(express.urlencoded({ extended: false }));
+
+//user routes 
+app.use(userRouter);
+
+// built-in middleware for json 
+app.use(express.json());
 
 //Hello World
 app.get('/', (req, res) => {
