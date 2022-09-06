@@ -7,8 +7,8 @@ router.post('/create_workout', isAuth, workoutController.postWorkout);
 
 router.get('/workouts', isAuth, workoutController.getWorkouts);
 
-router.put('/update_workout', isAuth, _);
+router.put('/update_workout', isAuth, workoutController.updateWorkout);
 
-router.delete('/delete_workout', isAuth, _);
+router.delete('/delete_workout', isAuth, workoutController.deleteWorkout);
 
 module.exports = router;

@@ -1,3 +1,4 @@
+const { update } = require('../model/Workout');
 const Workouts = require('../model/Workout');
 
 const getWorkouts = async (req, res) => {
@@ -36,7 +37,41 @@ const postWorkout = async (req, res) => {
     }
 };
 
+const updateWorkout = async (req, res) => {
+
+    const { _id, workout, exercise, repetitions, weight } = req.body;
+
+    const update = {
+        "workout": workout,
+        "exercise": exercise,
+        "repetitions": repetitions,
+        "weight": weight
+    };
+
+    try {
+        const result = await Workouts.findOneAndUpdate(_id, update, {
+            new: true
+        });
+
+        console.log(result);
+    } catch(err){
+        res.status(500).json({ "message": err.message })
+    }
+}
+
+const deleteWorkout = async (req, res) => {
+    const { _id } = req.body;
+
+    try {
+        const result = await Workouts.findOneAndDelete(_id);
+    } catch(err){
+        res.status(500).json({ "message": err.message })
+    }
+}
+
 module.exports = {
     postWorkout,
-    getWorkouts
+    getWorkouts,
+    updateWorkout,
+    deleteWorkout
 };
