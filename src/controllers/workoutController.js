@@ -1,12 +1,23 @@
 const Workouts = require('../model/Workout');
 
-var userId;
+const getWorkouts = async (req, res) => {
 
-const createWorkout = async (req, res) => {
+    const result = await Workouts.find({userid: req.session.userid}).exec();
 
-    if (userId == null){
-        //redirect to login
+    console.log(result);
+    res.json(result);
+
+};
+
+const postWorkout = async (req, res) => {
+
+    console.log("Ja so en userid: "+req.session.userid);
+/*
+    if (!req.session.isAuth){
+        //redirect to login if null
+        res.redirect('http://localhost:5001/login');
     }
+*/
     const { workout, exercise, repetitions, weight } = req.body;
 
     try {
@@ -16,16 +27,16 @@ const createWorkout = async (req, res) => {
             "exercise": exercise,
             "repetitions": repetitions,
             "weight": weight,
-            "userid": userId
+            "userid": req.session.userid
          });
 
         console.log(result);
     } catch (err) {
         res.status(500).json({ "message": err.message })
     }
-}
+};
 
 module.exports = {
-    userId,
-    createWorkout
+    postWorkout,
+    getWorkouts
 };

@@ -1,4 +1,3 @@
-const { ObjectId } = require('mongodb');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -24,7 +23,7 @@ const workoutSchema = new Schema({
         default: Date.now,
     },
     userid:{
-        type: ObjectId,
+        type: mongoose.Types.ObjectId,
         required: true
     }
 });

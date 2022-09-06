@@ -1,0 +1,53 @@
+[33mcommit e5f3c62d6c88fe3b6ace20794537dc3b4664813b[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: NilsThiemermann <nils.thiemermann@stud.edubs.ch>
+Date:   Sun Sep 4 23:04:18 2022 +0200
+
+    Model & Controller created for Workouts
+
+[33mcommit 558408fca58724ab19764e71d8e2a7a68dbe477d[m
+Author: NilsThiemermann <nils.thiemermann@stud.edubs.ch>
+Date:   Sun Sep 4 22:34:51 2022 +0200
+
+    Workout Model created
+
+[33mcommit 0cf5a22fecd59772ad80a54f2676119f5b4ed237[m
+Author: NilsThiemermann <nils.thiemermann@stud.edubs.ch>
+Date:   Sun Sep 4 14:37:54 2022 +0200
+
+    register and Login for users, backend doesn't get a value from the body
+
+[33mcommit 4c1b6fc0d5cdc212160363eb6924ab7601bc5000[m
+Author: NilsThiemermann <nils.thiemermann@stud.edubs.ch>
+Date:   Sun Sep 4 11:52:13 2022 +0200
+
+    MVC structure added
+
+[33mcommit c974a077a124fde9238b6c90125ba3d127b20881[m
+Author: NilsThiemermann <nils.thiemermann@stud.edubs.ch>
+Date:   Fri Sep 2 16:45:36 2022 +0200
+
+     MongoDB connection created
+
+[33mcommit 38226303c8048e1045efffa2627e75ceed16c3b8[m
+Author: NilsThiemermann <nils.thiemermann@stud.edubs.ch>
+Date:   Thu Sep 1 18:50:13 2022 +0200
+
+    hot reloading implemented
+
+[33mcommit 6a9a60b37c8ea605ae2a0e3aaa6150f568d22972[m
+Author: NilsThiemermann <nils.thiemermann@stud.edubs.ch>
+Date:   Thu Sep 1 15:39:35 2022 +0200
+
+    Hello World is working
+
+[33mcommit 01a849c216cd8bb3cad5aee47247f78170fdc6b1[m
+Author: NilsThiemermann <nils.thiemermann@stud.edubs.ch>
+Date:   Thu Sep 1 15:28:38 2022 +0200
+
+    Initial commit
+
+[33mcommit 32c409df67850b640b19878d8af7d49105d0f0f0[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: NilsThiemermann <90388357+NilsThiemermann@users.noreply.github.com>
+Date:   Thu Sep 1 15:26:12 2022 +0200
+
+    Initial commit
