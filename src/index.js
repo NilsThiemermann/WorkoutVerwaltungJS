@@ -1,6 +1,7 @@
 const express = require('express');
 const session = require('express-session');
 const dbStore = require('connect-mongodb-session')(session);
+const path = require('path');
 
 const bodyParser = require("body-parser");
 
@@ -21,6 +22,10 @@ const store = new dbStore({
     collection: "mySessions"
 });
 
+//set views
+app.set('views', path.join(__dirname,"views"));
+app.set('view engine', 'ejs');
+
 // built-in middleware to handle urlencoded form data
 app.use(express.urlencoded({ extended: true }));
 
@@ -39,7 +44,7 @@ app.use(workoutRouter);
 app.use(bodyParser.json());
 
 //Hello World
-app.get('/', (req, res) => {
+app.get('/HelloWorld', (req, res) => {
     res.send('Hello World!');
 });
 

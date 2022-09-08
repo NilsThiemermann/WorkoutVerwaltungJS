@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font- awesome.min.css">
+    <title>Workouts</title>
+</head>
+<body>
+    <div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nr</th>
+                <th>Workout</th>
+                <th>Exercise</th>
+                <th>Repetitions</th>
+                <th>Weight</th>
+                <th>Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% 
+                var x = 1;
+                result.forEach((obj) =>{
+                    %>
+                    <tr>
+                        <td><%= x %></td>
+                        <td><%= obj.workout %></td>
+                        <td><%= obj.exercise %></td>
+                        <td><%= obj.repetitions %></td>
+                        <td><%= obj.weight %> Kg</td>
+                        <td><%= obj.date %></td>
+                        <td><a id="delete" href="/delete_workout?_id=<%= obj._id %>" >Delete</a> <a id="edit" href="/update_workout?id=<%= obj._id %>">Edit</a></td>
+                    </tr>
+                    <%
+                    x++;
+                })
+            %>
+        </tbody>
+    </table>
+    </div>
+</body>
+</html>

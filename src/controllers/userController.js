@@ -1,6 +1,14 @@
 const bcrypt = require('bcrypt');
 const Users = require('../model/User');
 
+const getCreateUser = async (_, res) =>{
+    res.render('register');  
+}
+
+const getLogin = async (_, res) =>{
+    res.render('login');
+}
+
 const createUser = async (req, res) => {
     const {username, password} = req.body;
 
@@ -51,9 +59,9 @@ const login = async (req, res) => {
     req.session.userid = findUser._id;
     req.session.isAuth = true;
 
-    res.json({ "success": `User ${username} is logged in!` });  
+    //res.json({ "success": `User ${username} is logged in!` });  
 
-    //res.redirect('/');
+    res.redirect('/workouts');
 }
 
 const logout = async (req, res) => {
@@ -67,5 +75,7 @@ const logout = async (req, res) => {
 module.exports = {
     createUser,
     login,
-    logout
+    logout,
+    getLogin,
+    getCreateUser
 };

@@ -1,16 +1,21 @@
-const { update } = require('../model/Workout');
 const Workouts = require('../model/Workout');
+
+const mongoose = require('mongoose');
 
 const getWorkouts = async (req, res) => {
 
     const result = await Workouts.find({userid: req.session.userid}).exec();
-
-    console.log(result);
-    res.json(result);
+    
+    res.render('workouts', { result: result });
 
 };
 
-const postWorkout = async (req, res) => {
+const getCreateWorkout = async (_, res) => {
+    
+    res.render('createWorkout');
+}
+
+const createWorkout = async (req, res) => {
 
     console.log("Ja so en userid: "+req.session.userid);
 /*
@@ -31,11 +36,20 @@ const postWorkout = async (req, res) => {
             "userid": req.session.userid
          });
 
-        console.log(result);
+        res.redirect('/workouts');
     } catch (err) {
         res.status(500).json({ "message": err.message })
     }
 };
+
+const getUpdateWorkout = async (req, res) => {
+    
+    const id = mongoose.Types.ObjectId(req.query);
+
+    const result = await Workouts.findById(id).exec();
+
+    res.render('updateWorkout', { obj: result });
+}
 
 const updateWorkout = async (req, res) => {
 
@@ -53,25 +67,29 @@ const updateWorkout = async (req, res) => {
             new: true
         });
 
-        console.log(result);
+        res.redirect('/workouts');
     } catch(err){
         res.status(500).json({ "message": err.message })
     }
 }
 
 const deleteWorkout = async (req, res) => {
-    const { _id } = req.body;
+    const { _id } = req.query;
 
     try {
         const result = await Workouts.findOneAndDelete(_id);
+
+        res.redirect('/workouts');
     } catch(err){
         res.status(500).json({ "message": err.message })
     }
 }
 
 module.exports = {
-    postWorkout,
+    createWorkout,
     getWorkouts,
     updateWorkout,
-    deleteWorkout
+    deleteWorkout,
+    getCreateWorkout,
+    getUpdateWorkout
 };
